@@ -40,7 +40,7 @@ const captainSchema = new mongoose.Schema({
             require:true,
             minLength: [3,'color must be at 3 character long']
         },
-        palte:{
+        plate:{
             type:String,
             require:true,
             minLength: [4,'number plate must be at 3 character long']
@@ -72,11 +72,11 @@ captainSchema.methods.generateAuthToken = function () {
     return token;
 }
 
-captainSchema.methods.comparePassword = async function () {
+captainSchema.methods.comparePassword = async function (password) {
     return await bcrypt.compare(password,this.password);
 }
 
-captainSchema.methods.hashPassword = async function () {
+captainSchema.statics.hashPassword = async function (password) {
     return await bcrypt.hash(password, 10);
 }
 

@@ -5,8 +5,8 @@ const express = require('express');
 const app = express();
 const cors =  require('cors');
 const connectToDb = require('./DB/db.js')
-const userRoutes = require('./routes/user.route.js');
 const cookieParser = require('cookie-parser');
+const userRoutes = require('./routes/user.route.js');
 const captainRoutes = require('./routes/captain.route.js');
 
 

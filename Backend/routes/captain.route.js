@@ -26,7 +26,9 @@ router.post('/login',[
 )
 
 
-router.post('/profile',authCaptain.authCaptain, captainController.getcaptainProfile)
+router.get('/profile',authMiddleware.authCaptain, captainController.getcaptainProfile)
+
+router.get('/logout',authMiddleware.authCaptain, captainController.logoutCaptain)
 
 
 module.exports = router;
