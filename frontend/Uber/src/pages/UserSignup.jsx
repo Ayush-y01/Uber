@@ -1,13 +1,3 @@
-
-import React from 'react';
-
-function UserSignup() {
-    return ( <div>
-        <h1>UserSignup</h1>
-    </div> );
-}
-
-export default UserSignup;
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
