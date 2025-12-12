@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -112,3 +113,6 @@ function CaptainSignup() {
 
 
 export default CaptainSignup;
+=======
+import React from "react";
+>>>>>>> 2412e94d5cee0f39cc6698122ec8296d98a273b2
