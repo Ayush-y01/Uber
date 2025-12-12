@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 
 function UserSignup() {
@@ -11,12 +10,9 @@ function UserSignup() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-=======
-import { Link } from 'react-router-dom';
->>>>>>> 2412e94d5cee0f39cc6698122ec8296d98a273b2
 
     setUserData({
-        username:{
+        fullName:{
             firstName:firstName,
             lastName:lastName
         },
