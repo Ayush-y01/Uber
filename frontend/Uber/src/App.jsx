@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Start from './pages/Start.jsx'
 import Home from './pages/Home.jsx'
 import UserLogin from './pages/UserLogin.jsx'
 import UserSignup from './pages/UserSignup.jsx'
@@ -8,7 +9,7 @@ import CaptainSignup from './pages/captainSignup.jsx'
 import CaptainRiding from './pages/CaptainRiding.jsx';
 
 function App() {
-  return ( 
+  return (
     <div>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -19,7 +20,7 @@ function App() {
         <Route path='/captain-riding' element={<CaptainRiding />} />
       </Routes>
     </div>
-   );
+  );
 }
 
 export default App;
