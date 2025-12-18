@@ -54,9 +54,7 @@ const ConfirmRidePopUp = (props) => {
                             e.submitHandler(e)
 
                         }}>
-                            <input onChange={()=>{
-                                
-                            }} type="text" className="bg-[#eeeee] px-6 py-4 font-mono text-lg rounded-lg w-full mt-5 " placeholder="Enter OTP" />
+                            <input value={otp} onChange={(e)=>setOtp(e.target.value)} type="text" className="bg-[#eeeee] px-6 py-4 font-mono text-lg rounded-lg w-full mt-5 " placeholder="Enter OTP" />
                             <Link to='/captain-riding' className="w-full mt-5 flex justify-center bg-green-600 text-white font-semibold p-2">Confirm</Link>
                         <button onClick={() => {
                         props.setConfirmRidePopPanel(false)
