@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 
-const FinishRide = () => {
+const FinishRide = (props) => {
     return (
        <div>
                     <h5 onClick={()=>{
-                           props.setRidePopPanel(false)
+                           props.setFinishRidePanel(false)
                        }} className="p-3 text-center absolute top-0 w-[93%]"><i className="text-3xl text-gray-500 ri-arrow-down-wide-line"></i></h5>
-                   <h3 className="text-2xl font-semibold mb-5"> Confirm this Ride to start</h3>
+                   <h3 className="text-2xl font-semibold mb-5"> Finish this Ride</h3>
                    <div className="flex items-center justify-between p-3 bg-yellow-100 rounded-lg mt-4">
                        <div className="flex items-center gap-3 ">
                            <img className="h-12 w-12 rounded-full object-cover" src="here comes image of " alt="" />
@@ -44,8 +44,9 @@ const FinishRide = () => {
                        </div>
                        
                            <div className="mt-6 w-full">
-                                   <Link to='/captain-riding' className="w-full mt-5 flex justify-center bg-green-600 text-white font-semibold p-2">Finish Ride</Link>
-                              
+                                   <Link to='/captain-home' className="w-full mt-5 flex text-lg justify-center bg-green-600 text-white font-semibold p-2">Finish Ride</Link>
+
+                                    <p className="text-red-500 mt-10 text-xs">Click on finish the ride if you have compelet the payment process</p>
                            </div>
                    </div>
                </div>
