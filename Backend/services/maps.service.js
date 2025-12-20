@@ -1,5 +1,5 @@
 const axios = require('axios'); 
-const e = require('express');
+
 
 module.exports.getAddressCoordinate = async (address) => {
     const apikey = 'Google map api key';
@@ -76,6 +76,6 @@ module.exports.getAuthCompleteSuggestions = async (input) => {
         
     } catch (error) {
         console.error(error);
-        throw Error
+        throw error
     }
 }
