@@ -37,8 +37,11 @@ async function getFare(pickup, destination) {
 
 function getOtp(num) {
     function generateOtp(num) {
-        const otp = crypto.randomInt(Math.pow(10, num - 1)) // this part was where we stop at night 9:30 PM 23/12/2025 Tuesday
+        const otp = crypto.randomInt(Math.pow(10, num - 1), Math.pow(10, num).toString()); // this part was where we stop at night 9:30 PM 23/12/2025 Tuesday
+        return otp;
     }
+    return generateOtp(num);
+    
 }
 
 
@@ -55,6 +58,7 @@ module.exports.createRide = async ({user, pickup, destination, vehicleType}) => 
         user,
         pickup,
         destination,
+        otp: getOtp(4),
         fare: fare[ vehicleType ]
     })
     return ride;
