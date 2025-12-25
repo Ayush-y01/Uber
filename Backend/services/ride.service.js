@@ -35,6 +35,8 @@ async function getFare(pickup, destination) {
     return fare;
 }
 
+module.exports.getFare = getFare;
+
 function getOtp(num) {
     function generateOtp(num) {
         const otp = crypto.randomInt(Math.pow(10, num - 1), Math.pow(10, num).toString()); // this part was where we stop at night 9:30 PM 23/12/2025 Tuesday
