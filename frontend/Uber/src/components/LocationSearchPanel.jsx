@@ -1,6 +1,19 @@
 import React from "react";
 
-const LocationSearchPanel = (props) => {
+const LocationSearchPanel = ({ suggestion, setVehiclePanel, setPanelOpen,}) => {
+
+    const handleSuggestionClick = (suggestion) => {
+        if (activeField === 'pickup') {
+            setPickup(suggestion)
+        } else if (activeField === 'destination') {
+            setDestination(suggestion)
+        }
+        // setVehiclePanel(true)
+        // setPanelOpen(false)
+    }
+
+
+
     // sample array for location
     const locations = [
         "24B, Near Kapoor's cafe, Sheryians coding school, Bhopal",
@@ -13,10 +26,9 @@ const LocationSearchPanel = (props) => {
             {/* this is just a sample data */}
 
             {
-                locations.map(function(elem,idx){
+                suggestion.map(function(elem,idx){
                     return <div key={idx} onClick={() => {
-                        props.setVehiclePanel(true)
-                        props.setPanelOpen(false)
+                        handleSuggestionClick(elem)
                     }} className="flex border-2 p-3 rounded-xl border-white active:border-black items-center gap-4 my-2 justify-start">
                     <h2 className="bg-[#eeee] h-8 w-12 flex items-center justify-center rounded-full"><i className="ri-map-pin-fill "></i></h2>
                     <h4 className="font-medium">{ elem}</h4>

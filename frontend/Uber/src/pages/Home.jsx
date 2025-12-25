@@ -10,7 +10,7 @@ import WaitingForDriver from "../components/WaitingForDriver";
 
 const Home = () => {
     const [pickup, setPickup] = useState('');
-    const [destination, setDestination] = useState('')
+    const [destination, setDestination] = useState([])
     const [panelOpen, setPanelOpen] = useState(false);
     const vehiclePanelRef = useRef(null)
     const confirmRidePanelRef = useRef(null)
@@ -22,6 +22,42 @@ const Home = () => {
     const [confirmRidePanel, setConfirmRidePanel] = useState(false)
     const [vehicleFound, setVehicleFound] = useState(false)
     const [waitingForDriver, setWaitingForDriver] = useState(false)
+
+    const [pickupSuggestion, setPickupSuggestion] =  useState([])
+    const [destinationSuggestion, setDestinationSuggestion] =  useState([])
+    const [activeField, setActiveField] = useState(null)
+
+    const handlePickupChange = async (e) => {
+        setPickup(e.target.value)
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/maps/get-suggestion`,{ 
+                params:{ input: e.target.value },
+                Headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            
+            })
+            setPickupSuggestion(response.data)
+        } catch (error) {
+            
+        }
+    }
+
+    const handleDestinationChange = async (e) => {
+        setDestination(e.target.value)
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/maps/get-suggestion`,{ 
+                params:{ input: e.target.value },
+                Headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+             })
+            setDestinationSuggestion(response.data)
+        } catch (error) {
+            //handle error later
+        }
+    }
+
     
 
     const submitHandler = (e)=>{
