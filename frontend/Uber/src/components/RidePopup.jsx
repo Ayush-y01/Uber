@@ -1,58 +1,60 @@
-import React from "react";
+import React from 'react'
 
-const RidePopup = (props) => {
+const RidePopUp = (props) => {
     return (
         <div>
-             <h5 onClick={()=>{
-                    props.setRidePopPanel(false)
-                }} className="p-3 text-center absolute top-0 w-[93%]"><i className="text-3xl text-gray-500 ri-arrow-down-wide-line"></i></h5>
-            <h3 className="text-2xl font-semibold mb-5"> New Ride Available</h3>
-            <div className="flex items-center justify-between p-3 bg-yellow-100 rounded-lg mt-4">
-                <div className="flex items-center gap-3 ">
-                    <img className="h-12 w-12 rounded-full object-cover" src="here comes image of " alt="" />
-                    <h2 className="text-lg font-medium">Harsh Patel</h2>
+            <h5 className='p-1 text-center w-[93%] absolute top-0' onClick={() => {
+                props.setRidePopupPanel(false)
+            }}><i className="text-3xl text-gray-200 ri-arrow-down-wide-line"></i></h5>
+            <h3 className='text-2xl font-semibold mb-5'>New Ride Available!</h3>
+            <div className='flex items-center justify-between p-3 bg-yellow-400 rounded-lg mt-4'>
+                <div className='flex items-center gap-3 '>
+                    <img className='h-12 rounded-full object-cover w-12' src="https://i.pinimg.com/236x/af/26/28/af26280b0ca305be47df0b799ed1b12b.jpg" alt="" />
+                    <h2 className='text-lg font-medium'>{props.ride?.user.fullname.firstname + " " + props.ride?.user.fullname.lastname}</h2>
                 </div>
-                <h5 className="text-lg font-semibold">2.7 KM</h5>
+                <h5 className='text-lg font-semibold'>2.2 KM</h5>
             </div>
-
-            <div className="flex gap-2 justify-between flex-col items-center">
-                {/* <img className="h-20" src="confirm-vehicle-img" alt="##" /> */}
-                <div className="w-full mt-5">
-                    <div className="flex items-center gap-5 p-3 border-b-2">
-                        <i className="text-lg ri-map-pin-2-fill"></i>
+            <div className='flex gap-2 justify-between flex-col items-center'>
+                <div className='w-full mt-5'>
+                    <div className='flex items-center gap-5 p-3 border-b-2'>
+                        <i className="ri-map-pin-user-fill"></i>
                         <div>
-                            <h3 className="text-lg font-medium">563/11-A</h3>
-                            <p className="text-sm -mt-1 text-gray-600">kankariya talab, Bhopal</p>
+                            <h3 className='text-lg font-medium'>562/11-A</h3>
+                            <p className='text-sm -mt-1 text-gray-600'>{props.ride?.pickup}</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-5 p-3 border-b-2">
+                    <div className='flex items-center gap-5 p-3 border-b-2'>
                         <i className="text-lg ri-map-pin-2-fill"></i>
                         <div>
-                            <h3 className="text-lg font-medium">563/11-A</h3>
-                            <p className="text-sm -mt-1 text-gray-600">kankariya talab, Bhopal</p>
+                            <h3 className='text-lg font-medium'>562/11-A</h3>
+                            <p className='text-sm -mt-1 text-gray-600'>{props.ride?.destination}</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-5 p-3 ">
-                        <i className="text-lg ri-map-pin-2-fill"></i>
+                    <div className='flex items-center gap-5 p-3'>
+                        <i className="ri-currency-line"></i>
                         <div>
-                            <h3 className="text-lg font-medium">193.20</h3>
-                            <p className="text-sm -mt-1 text-gray-600">Cash cash</p>
+                            <h3 className='text-lg font-medium'>₹{props.ride?.fare} </h3>
+                            <p className='text-sm -mt-1 text-gray-600'>Cash Cash</p>
                         </div>
                     </div>
                 </div>
-                    <div className="flex w-full items-center justify-between">
-                        <button onClick={() => {
-                        props.setConfirmRidePopPanel(true)
-
-                    }} className=" mt-5 bg-green-600 text-white font-semibold p-3 px-8">Accept</button>
+                <div className='mt-5 w-full '>
                     <button onClick={() => {
-                        props.setRidePopPanel(false)
+                        props.setConfirmRidePopupPanel(true)
+                        props.confirmRide()
 
-                    }} className=" mt-2 bg-gray-300 text-gray-700 font-semibold p-3 px-8">Ignore</button>
-                    </div>
+                    }} className=' bg-green-600 w-full text-white font-semibold p-2 px-10 rounded-lg'>Accept</button>
+
+                    <button onClick={() => {
+                        props.setRidePopupPanel(false)
+
+                    }} className='mt-2 w-full bg-gray-300 text-gray-700 font-semibold p-2 px-10 rounded-lg'>Ignore</button>
+
+
+                </div>
             </div>
         </div>
     )
 }
 
-export default RidePopup;
+export default RidePopUp
