@@ -20,10 +20,16 @@ router.post('/login', [
 ],
     userController.loginUser
 )
+<<<<<<< HEAD
+    
+router.get('/profile', authMiddleware.authUser, userController.getUserProfile);
+router.get('/logout', authMiddleware.authUser, userController.logoutUser);
+=======
 
 router.get('/profile', authMiddleware.authUser, userController.getUserProfile)
 
 router.get('/logout', authMiddleware.authUser, userController.logoutUser)
+>>>>>>> ee4e0d35d40ee276f1e527ec463cdbe2b12beae7
 
 
 
